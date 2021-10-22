@@ -1,0 +1,1 @@
+docker run -d --name block7stats -v $PWD/output:/src/block7stats/output -v $PWD/cfg:/src/block7stats/cfg block7stats

@@ -17,4 +17,4 @@ df['createTime'] = pd.to_datetime(df['createTime'])
 
 df1 = pd.DataFrame(lststages)
 
-block7stats.showStagesStats(df1, './stagestats.html')
+block7stats.showStagesStats(df1, './output/stagestats.html')
