@@ -8,3 +8,4 @@ def test_loadConfig():
 
     assert cfg['urlroot'] == 'https://block7serv.heyalgo.io/v1/games'
     assert cfg['token'] == '123abc'
+    assert cfg['startUID'] == 579
