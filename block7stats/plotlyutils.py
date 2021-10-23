@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 import plotly.graph_objects as go
 
-def showStagesStats(df, fn):
+def genStagesStats(df, fn):
     fig = go.Figure()
     
     fig.add_trace(go.Bar(
@@ -73,5 +73,5 @@ def showStagesStats(df, fn):
     fig.update_layout(barmode='group', xaxis_tickangle=-45)
     # fig.write_html('{}{}'.format(g_fnHead, fn))
     fig.write_html('{}'.format(fn))
-    fig.show()
+    # fig.show()
     

@@ -225,7 +225,7 @@ def analyzeUserStages(ui, lststages, lstdaystats, stages):
     return
 
 # 是否是一个有效的用户
-def isValidUserStatsData(usret):
+def isValidUserStatsData(usret, regDay):
     if usret == None:
         return False
     
@@ -251,6 +251,9 @@ def isValidUserStatsData(usret):
     # if g_isRegDay:
     #     if usret['user']['createTime'].find(g_regDay) != 0:
     #         return False
+    if regDay != None:
+        if usret['user']['createTime'].find(regDay) != 0:
+            return False
     
     if usret['user']['stages'] == None:
         return False
@@ -343,7 +346,7 @@ def analyzeHomeScene(lsthomescene, homescene):
         addHomeScene(lsthomescene, v)
     
 # 分析用户数据
-def analyzeUserStats(cfg, startUID, endUID):
+def analyzeUserStats(cfg, startUID, endUID, regDay):
     lstui = []
     lststages = []
     lstdaystats = []
@@ -354,7 +357,7 @@ def analyzeUserStats(cfg, startUID, endUID):
         print('cur uid is {}'.format(uid))
 
         cui = getUserStats(cfg, uid)
-        if isValidUserStatsData(cui):
+        if isValidUserStatsData(cui, regDay):
             ui = {
                 'uid': uid, 
                 'coin': int(cui['user']['coin']),
