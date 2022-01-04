@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+import sys
 from block7stats.http import getUserStats
 from block7stats.utils import parseTime, getTimeOffsetHours, fromTimestamp
 from datetime import datetime
@@ -355,6 +356,7 @@ def analyzeUserStats(cfg, startUID, endUID, regDay):
     
     for uid in range(startUID, endUID):
         print('cur uid is {}'.format(uid))
+        sys.stdout.flush()
 
         cui = getUserStats(cfg, uid)
         if isValidUserStatsData(cui, regDay):

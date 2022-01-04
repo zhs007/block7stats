@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 
 cfg/config.yaml
+myrundocker.sh

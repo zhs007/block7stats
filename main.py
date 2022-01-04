@@ -1,12 +1,14 @@
 # -*- coding:utf-8 -*-
 import block7stats
 import pandas as pd
+import sys
 from datetime import timedelta, date
 
 cfg = block7stats.loadConfig('./cfg/config.yaml')
 stats = block7stats.getStats(cfg)
 
 print('uid is in range({}, {})'.format(cfg['startUID'], stats['user']['latestuserid']))
+sys.stdout.flush()
 
 lstui, lststages, lstdaystats, lsthomescene = block7stats.analyzeUserStats(cfg, cfg['startUID'], stats['user']['latestuserid'], None)
 # for uid in range(cfg['startUID'], stats['user']['latestuserid']):
@@ -24,6 +26,7 @@ curday = cfg['startDay']
 while curday <= date.today():
     curdaystr = curday.strftime('%Y-%m-%d')
     print('curday is {}'.format(curdaystr))
+    sys.stdout.flush()
 
     lstui, lststages, lstdaystats, lsthomescene = block7stats.analyzeUserStats(cfg, cfg['startUID'], stats['user']['latestuserid'], curdaystr)
 
